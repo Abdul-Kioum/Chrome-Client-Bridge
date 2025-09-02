@@ -1,4 +1,4 @@
-function nativeCall(fn, args = [], types = [], ret = "void") {
+function javaCall(fn, args = [], types = [], ret = "void") {
     // If types not given, auto-detect
     if (!types.length) {
       types = args.map(v => {
