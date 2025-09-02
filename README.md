@@ -69,7 +69,7 @@ The payload sent from JavaScript to Android must be JSON, like this:
 
 **Example:**  
 ```js
-nativeCall('addInt', [2, 3], ['int','int'], 'int');
+javaCall('addInt', [2, 3], ['int','int'], 'int');
 ```
 
 ---
@@ -93,8 +93,42 @@ public String appName() {
 
 ### In JS (HTML)  
 ```js
-nativeCall('showToast', ['Hello'], ['string'], 'void');
-nativeCall('addInt', [3,5], ['int','int'], 'int');
-nativeCall('isEven', [8], ['int'], 'boolean');
-nativeCall('appName', [], [], 'string');
+javaCall('showToast', ['Hello'], ['string'], 'void');
+javaCall('addInt', [3,5], ['int','int'], 'int');
+javaCall('isEven', [8], ['int'], 'boolean');
+javaCall('appName', [], [], 'string');
 ```
+
+### 🌐 Server Setup
+
+Add this to your HTML file to enable Java method calls from JavaScript:
+
+```html
+<script src="path/to/javaCall.js"></script>
+```
+
+Then use the javaCall() function:
+
+```javascript
+// Call Java methods from JS
+javaCall('methodName', [arg1, arg2], ['string', 'int'], 'void');
+javaCall('getData', [], [], 'string');
+```
+
+Where to add:
+
+· Place the <script> tag in your HTML head or before closing body tag
+· The javaCall.js file must be hosted on your server
+· Call javaCall() anywhere in your JavaScript code after the script loads
+
+File structure:
+
+```
+your-server.com/
+├── index.html
+├── js/
+│   └── javaCall.js  ← Add this file
+└── assets/
+```
+
+The javaCall.js file provides the bridge interface between your web content and Android Java methods.
