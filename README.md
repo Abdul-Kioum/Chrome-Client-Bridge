@@ -69,7 +69,7 @@ The payload sent from JavaScript to Android must be JSON, like this:
 
 **Example:**  
 ```js
-javaCall('addInt', [2, 3], ['int','int'], 'int');
+const AddInt = javaCall('addInt', [2, 3], ['int','int'], 'int');
 ```
 
 ---
@@ -94,9 +94,9 @@ public String appName() {
 ### In JS (HTML)  
 ```js
 javaCall('showToast', ['Hello'], ['string'], 'void');
-javaCall('addInt', [3,5], ['int','int'], 'int');
-javaCall('isEven', [8], ['int'], 'boolean');
-javaCall('appName', [], [], 'string');
+const addInt = javaCall('addInt', [3,5], ['int','int'], 'int');
+const isEven = javaCall('isEven', [8], ['int'], 'boolean');
+const appNames = javaCall('appName', [], [], 'string');
 ```
 
 ### 🌐 Server Setup
@@ -112,7 +112,7 @@ Then use the javaCall() function:
 ```javascript
 // Call Java methods from JS
 javaCall('methodName', [arg1, arg2], ['string', 'int'], 'void');
-javaCall('getData', [], [], 'string');
+const getData = javaCall('getData', [], [], 'string');
 ```
 
 Where to add:
